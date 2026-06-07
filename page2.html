@@ -5,58 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رسانه روحِ صنعت بازی‌سازی</title>
     <style>
-
-/* استایل پایه لینک */
 a {
     display: inline-block;
-    color: #00ff9d; /* سبز نئونی */
+    color: #00ff9d; 
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* حرکت نرم و حرفه‌ای */
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-/* حالت هاور: خشن اما جذاب */
 a:hover {
-    color: #ff0000; /* قرمز خالص و خشن */
-    text-shadow: 0 0 15px #ff0000, 0 0 30px #8b0000; /* درخشش قرمز سنگین */
-    
-    /* ایجاد حالت کشیدگی و تغییر ابعاد (Stretch) */
+    color: #ff0000; 
+    text-shadow: 0 0 15px #ff0000, 0 0 30px #8b0000; 
     transform: scaleX(1.2) scaleY(0.9); 
-    
-    /* ایجاد حالت اسپویلر با پس‌زمینه تیره */
     background-color: rgba(0, 0, 0, 0.8);
     padding: 0 10px;
     border-radius: 4px;
 }
-
-
-
-
-
-        /* تعریف متغیرهای رنگی نئون */
         :root {
             --neon: #00ff9d;
             --bg-dark: #0a0a0c;
             --glass: rgba(255, 255, 255, 0.05);
             --text: #e0e0e0;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Tahoma', sans-serif;
             line-height: 1.8;
             color: var(--text);
-            
-            /* تنظیمات پس‌زمینه با آدرس پوشه photo */
-            /* نکته: اگر اسم عکست چیز دیگری است، به جای bg.jpg آن را بنویس */
             background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                        url('../photo/photo2.jpg');
-            
+                        url('photo2.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -64,34 +44,28 @@ a:hover {
             
             min-height: 100vh;
         }
-
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 20px;
         }
-
         header {
             text-align: center;
             margin-bottom: 50px;
         }
-
         h1 {
             font-size: 3rem;
             color: var(--neon);
             text-shadow: 0 0 15px var(--neon);
             margin-bottom: 10px;
         }
-
         .subtitle {
             font-size: 1.2rem;
             color: #aaa;
         }
-
-        /* استایل کارت‌های شیشه‌ای (Glassmorphism) */
         .card {
             background: var(--glass);
-            backdrop-filter: blur(10px); /* افکت مات شدن پشت کارت */
+            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -99,42 +73,34 @@ a:hover {
             margin-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
             border-color: var(--neon);
         }
-
         h2 {
             color: var(--neon);
             margin-bottom: 20px;
             font-size: 1.8rem;
         }
-
         h3 {
             color: #fff;
             margin-top: 20px;
             margin-bottom: 10px;
         }
-
         p {
             margin-bottom: 15px;
             color: #ccc;
         }
-
         .highlight {
             color: var(--neon);
             font-weight: bold;
         }
-
         .timeline-item {
             border-right: 2px solid var(--neon);
             padding-right: 20px;
             margin-bottom: 20px;
-        }
-
-        
+        }   
         footer {
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
@@ -142,9 +108,6 @@ a:hover {
             padding: 20px;
             font-size: .8rem;
             color: #d4af37; }
-
-
-        /* ریسپانسیو برای موبایل */
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
             .container { padding: 30px 15px; }
@@ -152,38 +115,28 @@ a:hover {
     </style>
 </head>
 <body>
-
     <div class="container">
         <header>
             <h1>Tennis for Two</h1>
         </header>
-
         <main>
-   
         <section class="card">
                 <h2>اولین گام بشر در تعامل</h2>
-                <div class="timeline-item">
-              
+                <div class="timeline-item">  
                     <p>در سال 1958 زمانی که کامپیوترها هنوز غول‌های عظیم و بی‌روح در آزمایشگاه‌ها بودند (ویلیام هیگین‌ باتم) با استفاده از یک اسیلوسکوپ (Oscilloscope) کاری انجام داد که دنیا را تکان داد. او بازی Tennis for Two را ساخت بازی‌ای که نه با کاغذ و قلم بلکه با سیگنال‌های الکتریکی و نمایشگرهای نوری مفهوم (بازی کردن) را خلق کرد</p>
           <h4 <span class="highlight">ویژگی های بازی</span></h4> 
-          
           <p>دستگاه نمایشگر اسیلوسکوپ آنالوگ (Oscilloscope) - (به جای مانیتورهای مدرن)</p>
           <p>کنترلر: دو دسته مخصوص که شامل یک دکمه و یک پتانسیومتر برای کنترل شدت توپ بود</p>
           <p>فیزیک بازی: برخلاف بازی‌های بعدی این بازی دارای جاذبه و قوس توپ بود</p>
           <h4 <span class="highlight">اهمیت این بازی</span></h4>
           <p>این بازی اولین بار ثابت کرد که رسانه می‌تواند دو طرفه باشد یعنی کاربر فقط تماشاگر نیست بلکه با تغییر ورودی‌ها خروجی رسانه را کنترل می‌کند. این دقیقاً همان هسته‌ای است که امروز در بزرگترین بازی‌های جهان (مثل GTA یا Call of Duty) وجود دارد</p>
-          <a href="../video/video.mp4"<h5 <span class="highlight">تماشای ویدیو</span></h5></a>
-
-        
-        </section> 
-               
+          <a href="video.mp4"<h5 <span class="highlight">تماشای ویدیو</span></h5></a>
+        </section>      
         </main>
-
         <footer>
             کنفرانس درس کاربرد رسانه دانشگاه فرهنگیان شهید مطهری
         </footer>
     </div>
-
 </body>
 </html>
 
