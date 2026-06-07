@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رسانه روحِ صنعت بازی‌سازی</title>
     <style>
+a, button, [role="button"] {
+    cursor: none !important;
+}
+body {
+  cursor: none;
+}
+.custom-cursor {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #00e5ff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease, background-color 0.2s ease;
+  z-index: 99999;
+  box-shadow: 0 0 12px #00e5ff, 0 0 24px #00e5ff;
+}
+
 a {
     display: inline-block;
     color: #00ff9d; 
@@ -152,5 +171,6 @@ a:hover {
 کنفرانس درس کاربرد رسانه دانشگاه فرهنگیان شهید مطهری
   </footer>
  </div>
+<script src="hawer.js"></script>
 </body>
 </html>
