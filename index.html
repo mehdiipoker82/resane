@@ -26,17 +26,26 @@
 .active .hamburger span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
 .active .hamburger span:nth-child(2) { opacity: 0; }
 .active .hamburger span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
-
 .nav-menu {
-  position: fixed;
+  position: fixed !important; /* ثابت بودن نسبت به کل صفحه (نه والد) */
   top: 0;
   right: 0;
-  width: 300px;
-  height: 100vh;
-  z-index: 999999 !important; /* عدد بسیار بزرگ */
-  isolation: isolate; /* این خط خیلی مهم است */
-  /* بقیه استایل‌های قبلی... */
+  width: 80%; /* در موبایل معمولاً ۸۰ درصد عرض صفحه خوب است */
+  max-width: 300px;
+  height: 100vh !important;
+  z-index: 2147483647 !important; /* بالاترین عدد ممکن در مرورگر */
+  pointer-events: auto; /* برای اینکه دکمه‌های منو کار کنند */
+  
+  /* مهم برای موبایل: جلوگیری از بریده شدن توسط والد */
+  margin: 0;
+  padding: 0;
+  display: block;
+  
+  /* حذف هرگونه transform یا filter از والدِ احتمالی */
+  transform: none !important; 
 }
+
+
 
 .nav-menu ul { list-style: none; padding: 0; }
 .nav-menu ul li { padding: 20px; text-align: center; }
