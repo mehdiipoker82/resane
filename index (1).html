@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رسانه روحِ صنعت بازی‌سازی</title>
     <style>
+/* استایل‌دهی CSS */
+.menu-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+   cursor: none; 
+}
+
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.active .hamburger span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+.active .hamburger span:nth-child(2) { opacity: 0; }
+.active .hamburger span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+
+.nav-menu {
+  display: none; 
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #2c3e50;
+  padding-top: 80px;
+}
+
+.nav-menu ul { list-style: none; padding: 0; }
+.nav-menu ul li { padding: 20px; text-align: center; }
+.nav-menu ul li a { color: white; text-decoration: none; font-size: 20px; }
 #page-transition {
   position: fixed;
   inset: 0;
@@ -199,21 +235,22 @@ body {
   z-index: 99999;
   box-shadow: 0 0 12px #00e5ff, 0 0 24px #00e5ff;
 }
+
 a {
     display: inline-block;
-    color: #00ff9d;
+    color: #00ff9d; 
     text-decoration: none;
     font-weight: bold;
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 a:hover {
-    color: #ff0000;
-    text-shadow: 0 0 15px #ff0000, 0 0 30px #8b0000; 
+    color: #ff0000; 
+    text-shadow: 0 0 15px #ff0000, 0 0 30px #8b0000;
     transform: scaleX(1.2) scaleY(0.9); 
     background-color: rgba(0, 0, 0, 0.8);
     padding: 0 10px;
     border-radius: 4px;
-}
+}   
         :root {
             --neon: #00ff9d;
             --bg-dark: #0a0a0c;
@@ -230,14 +267,14 @@ a:hover {
             line-height: 1.8;
             color: var(--text);
             background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
-                        url('photo3.jpg');
+            url('photo.jfif');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
             min-height: 100vh;
         }
-    .container {
+        .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 20px;
@@ -293,7 +330,7 @@ a:hover {
             border-right: 2px solid var(--neon);
             padding-right: 20px;
             margin-bottom: 20px;
-        } 
+        }
         footer {
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
@@ -308,6 +345,22 @@ a:hover {
     </style>
 </head>
 <body>
+<div class="menu-container">
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="nav-menu" class="nav-menu">
+  <ul>
+    <li><a href="#">زبان های استفاده شده</a></li>
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">js</a></li>
+  </ul>
+</nav>
 <div id="page-transition">
   <div class="pt-bg"></div>
   <div class="pt-shine"></div>
@@ -324,32 +377,47 @@ a:hover {
 
     <div class="container">
         <header>
-            <h1>Spacewar</h1>
+            <h1>رسانه روحِ صنعت بازی‌سازی</h1>
+            <p class="subtitle">سفری از اولین ایده تا بازی‌های مفهوم‌گرا</p>
         </header>
-        <main>
-        <section class="card">
-                <h3 <span class="highlight">نقطه آغاز</span></h3>
+        <main>        
+            <section class="card">
+                <h2>آغاز یک انقلاب</h2>
                 <div class="timeline-item">
-          <p>بازی Spacewar فقط یک بازی ساده نیست این بازی در واقع «نقطه انفجار» دنیای بازی‌های کامپیوتری است</p>
-          <p>در قرن 19 کامپیوترها غول‌های آهنی بودند که در اتاق‌های بزرگ قرار داشتند و فقط برای محاسبات ریاضی سنگین استفاده می‌شدند اما در دانشگاه MIT گروهی از دانشجویان و محققان با یک کامپیوتر بسیار پیشرفته به نام PDP-1 کار می‌کردند
-آن‌ها به دنبال چیزی بودند که فراتر از اعداد و ستون‌های ریاضی باشد آن‌ها می‌خواستند ببینند آیا می‌توان با این ماشین یک «تجربه تعاملی» ساخت یا خیر</p> 
-          <h4 <span class="highlight">معماران دنیای دیجیتال</span></h4> 
-          <p>بازی توسط گروهی از دانشجویان ساخته شد که بعدها خودشان به بزرگان صنعت تکنولوژی تبدیل شدند مهم‌ترین آن‌ها استیو راسل (Steve Russell) بود که رهبری پروژه را بر عهده داشت او و دوستانش (مانند Dan Edwards) با استفاده از زبان اسمبلی (Assembly) کد را نوشتند</p>                 
-          <h4 <span class="highlight">گیم‌پلی بازی</span></h4>
-          <p>موضوع: دو بازیکن در فضا هستند و باید با سفینه‌های کوچک خود با هم بجنگند</p>
-          <p>قانون فیزیک : این بازی یکی از اولین‌هایی بود که مفهوم گرانش (Gravity) را پیاده کرد ستاره مرکزی دارای جاذبه بود یعنی اگر بیش از حد به آن نزدیک می‌شدی ستاره تو را می‌بلعید</p>
-          <p>کنترل : بازیکنان باید با استفاده از دکمه‌ها جهت حرکت و شلیک توپ‌ها را کنترل می‌کردند</p>          
-          <h4 <span class="highlight">چرا Spacewar یک انقلاب بود؟</span></h4>
-          <p>اولین بازی تعاملی واقعی : قبل از آن کامپیوترها فقط دستورات را اجرا می‌کردند با Spacewar برای اولین بار انسان توانست در لحظه با ماشین بجنگد و واکنش نشان دهد این یعنی تولد مفهوم (گیم‌پلی)</p>
-          <p>مفاهیم فیزیک در بازی: اضافه کردن جاذبه و اینرسی (سقوط سفینه بعد از رها کردن دکمه) ثابت کرد که بازی می‌تواند قوانین دنیای واقعی را شبیه‌سازی کند</p>
-          <p> فرهنگ بازی‌سازی : این بازی از طریق دانشگاه‌ها و کامپیوترهای بزرگ در سراسر جهان پخش شد. این اولین باری بود که بازی به عنوان یک فعالیت سرگرم‌کننده و اجتماعی شناخته شد نه فقط یک ابزار محاسباتی</p>        
-          <a href="video2.mp4"<h5 <span class="highlight">تماشای ویدیو</span></h5></a>
-        </section>       
-        </main>
-        <footer>
-            کنفرانس درس کاربرد رسانه دانشگاه فرهنگیان شهید مطهری
-        </footer>
-    </div>
+                   <a href="page2.html" <h3> <span class="highlight">Tennis for Two</span></h3></a>
+                    <p>اولین تلاش برای تعامل واقعی انسان با ماشین توسط ویلیام هیگین‌باتم در آزمایشگاه ملی بروک‌هیون</p></div>
+            </section>   
+            <section class="card">
+                <h3 <span class="highlight">نخستین ماشین ساختار </span></h3>            
+                <div class="timeline-item">
+                    <a href=page3.html> <h3> <span class="highlight">Spacewar</span></h3></a>
+                    <p>اولین بازی کامپیوتری واقعی که در MIT ساخته شد و پایه رسانه تعاملی مدرن را بنا کرد</p>
+                </div>
+            </section>        
+            <section class="card">
+                <h3 <span class="highlight">بازی‌هایی که رسانه را بازتعریف کردند </span></h3>   
+                <h3> <span class="highlight">Papers Please</span></h3>
+                <p>بازی‌ای که از مکانیک‌های ساده رسانه‌ای برای نقد بوروکراسی و فشارهای اخلاقی سیاسی می‌سازد</p>
+                <h3> <span class="highlight">The Stanley Parable</span></h3>
+                <p>یک تجربه‌ی متافیزیکی که با بازی کردنِ خود مفهوم "بازی" نقش بازیکن و سازنده را به چالش می‌کشد</p>
+                <h3> <span class="highlight">Death Stranding</span></h3>
+                <p>شاهکار کوجیما که مفهوم "ارتباط" و "اتصال" را به هسته‌ی اصلی گیم‌پلی تبدیل کرده است</p>
+            </section>
+            <section class="card"> 
+ <h3 <span class="highlight">عصر کامپیوترهای شخصی و گرافیک سه بعدی </span></h3>
+<p>در دهه 1990 تا 2000 میلادی  با ظهور کارت‌های گرافیک  (GPU) و رایانه های شخصی پیشرفته ماشین‌ها توانستند از دنیای دو بعدی (Pixels) به دنیای سه بعدی (Polygons) وارد شوند قدرت پردازش به شدت بالا رفت و بازی‌ها شبیه به فیلم شدند</p>
+<p>امروزه ماشین‌ها از نظر گرافیکی به مرز واقع‌گرایی (Photorealism) رسیده‌اند استفاده از Ray Tracing (رهگیری پرتوهای نور) و پردازش‌های عظیم ابری تفاوت بین بازی و واقعیت را کم کرده است</p>
+
+  </section>        
+            <section class="card">
+                <h3 <span class="highlight">موتور های بازی سازی پیشرفته </span></h3>    
+                 <p>با پیشرفت صنعت بازی سازی موتور های ساخت گیم مختلفی عرضه شدند مثل : (RAGE)(Godot Engine)(Unity)  همچنین معروف ترین اون ها یعنی موتور  <a href="page4.html">(Unreal Engine)</a>که بیشتر برسی میکنیم</p>
+
+</main>
+ <footer>
+کنفرانس درس کاربرد رسانه دانشگاه فرهنگیان شهید مطهری
+  </footer>
+ </div>
 <script src="hawer.js"></script>
 <script>
   const transition = document.getElementById('page-transition');
@@ -403,7 +471,14 @@ a:hover {
     }, 600);
   });
 </script>
+<script>
 
+function toggleMenu() {
+  const menu = document.querySelector('.menu-container');
+  const nav = document.getElementById('nav-menu');
+  menu.classList.toggle('active');
+  nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
+}
+</script>
 </body>
 </html>
-
