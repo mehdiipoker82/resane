@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رسانه روحِ صنعت بازی‌سازی</title>
     <style>
+      .menu-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.active .hamburger span:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+.active .hamburger span:nth-child(2) { opacity: 0; }
+.active .hamburger span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+.nav-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: #2c3e50;
+  padding-top: 80px;
+}
+.nav-menu ul { list-style: none; padding: 0; }
+.nav-menu ul li { padding: 20px; text-align: center; }
+.nav-menu ul li a { color: white; text-decoration: none; font-size: 20px; }  
 #page-transition {
   position: fixed;
   inset: 0;
@@ -14,12 +45,10 @@
   visibility: hidden;
   overflow: hidden;
 }
-
 #page-transition.active {
   opacity: 1;
   visibility: visible;
 }
-
 #page-transition .pt-bg {
   position: absolute;
   inset: 0;
@@ -27,7 +56,6 @@
     radial-gradient(circle at center, rgba(99, 102, 241, 0.35) 0%, rgba(15, 23, 42, 0.92) 45%, #000 100%);
   backdrop-filter: blur(10px);
 }
-
 #page-transition .pt-shine {
   position: absolute;
   inset: -30%;
@@ -43,14 +71,12 @@
   opacity: 0;
   filter: blur(2px);
 }
-
 .pt-character-wrap {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
 }
-
 .pt-character {
   width: min(42vw, 360px);
   max-width: 360px;
@@ -63,7 +89,6 @@
   transform: translateY(14px) scale(0.92);
   opacity: 0;
 }
-
 #page-transition .pt-content {
   position: absolute;
   left: 50%;
@@ -77,14 +102,12 @@
   text-align: center;
   opacity: 0;
 }
-
 #page-transition .pt-content p {
   margin: 0;
   font-size: 16px;
   letter-spacing: 1px;
   opacity: 0.85;
 }
-
 .pt-loader {
   width: 60px;
   height: 60px;
@@ -94,30 +117,24 @@
   box-shadow: 0 0 24px rgba(255, 255, 255, 0.25);
   animation: spin 0.9s linear infinite;
 }
-
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
-
 #page-transition.active .pt-bg {
   animation: bgIn 0.65s ease forwards;
 }
-
 #page-transition.active .pt-shine {
   animation: shineMove 0.9s ease forwards;
   animation-delay: 0.12s;
 }
-
 #page-transition.active .pt-character {
   animation: charPop 0.75s cubic-bezier(.2,.9,.2,1) forwards;
   animation-delay: 0.15s;
 }
-
 #page-transition.active .pt-content {
   animation: fadeUp 0.45s ease forwards;
   animation-delay: 0.35s;
 }
-
 @keyframes bgIn {
   from {
     opacity: 0;
@@ -127,8 +144,6 @@
     opacity: 1;
     clip-path: circle(150% at 50% 50%);
   }
-}
-
 @keyframes shineMove {
   0% {
     opacity: 0;
@@ -141,8 +156,6 @@
     opacity: 0;
     transform: translateX(120%) rotate(8deg);
   }
-}
-
 @keyframes charPop {
   0% {
     opacity: 0;
@@ -157,7 +170,6 @@
     transform: translateY(0) scale(1) rotate(0deg);
   }
 }
-
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -168,19 +180,16 @@
     transform: translateX(-50%) translateY(0);
   }
 }
-
 #page-transition.leaving .pt-bg,
 #page-transition.leaving .pt-character,
 #page-transition.leaving .pt-content {
   animation: none;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 #page-transition.leaving {
   opacity: 0;
   transition: opacity 0.35s ease;
 }
-
 a, button, [role="button"] {
     cursor: none !important;
 }
@@ -197,9 +206,7 @@ body {
   transform: translate(-50%, -50%);
   transition: transform 0.08s ease, background-color 0.2s ease;
   z-index: 99999;
-  box-shadow: 0 0 12px #00e5ff, 0 0 24px #00e5ff;
-}
-
+  box-shadow: 0 0 12px #00e5ff, 0 0 24px #00e5ff;}
 a {
     display: inline-block;
     color: #00ff9d; 
@@ -236,28 +243,23 @@ a:hover {
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
-            min-height: 100vh;
-        }
-        .container {
+            min-height: 100vh;}
+           .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px;
-        }
-        header {
+            padding: 60px 20px;}
+            header {
             text-align: center;
-            margin-bottom: 50px;
-        }
-        h1 {
+            margin-bottom: 50px;}
+            h1 {
             font-size: 3rem;
             color: var(--neon);
             text-shadow: 0 0 15px var(--neon);
-            margin-bottom: 10px;
-        }
-        .subtitle {
+            margin-bottom: 10px;}
+            .subtitle {
             font-size: 1.2rem;
-            color: #aaa;
-        }
-        .card {
+            color: #aaa;}
+            .card {
             background: var(--glass);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -265,65 +267,68 @@ a:hover {
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;}
+            .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
-            border-color: var(--neon);
-        }
-        h2 {
+            border-color: var(--neon);}
+            h2 {
             color: var(--neon);
             margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-        h3 {
+            font-size: 1.8rem;}
+            h3 {
             color: #fff;
             margin-top: 20px;
-            margin-bottom: 10px;
-        }
-        p {
+            margin-bottom: 10px;}
+            p {
             margin-bottom: 15px;
-            color: #ccc;
-        }
-        .highlight {
+            color: #ccc;}
+            .highlight {
             color: var(--neon);
-            font-weight: bold;
-        }
-        .timeline-item {
+            font-weight: bold;}
+           .timeline-item {
             border-right: 2px solid var(--neon);
             padding-right: 20px;
-            margin-bottom: 20px;
-        }
-        footer {
+            margin-bottom: 20px;}
+            footer {
             text-align: center;
             font-family: 'Courier New', Courier, monospace;
             margin-top: 50px;
             padding: 20px;
             font-size: .8rem;
             color: #d4af37; }
-        @media (max-width: 600px) {
+            @media (max-width: 600px) {
             h1 { font-size: 2rem; }
             .container { padding: 30px 15px; }
-        }
-    </style>
-</head>
-<body>
-
+            </style>
+            </head>
+            <body>
+            <div class="menu-container">
+            <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+            </div>
+</div>
+<nav id="nav-menu" class="nav-menu">
+  <ul>
+    <li>زبان های استفاده شده</li>
+    <li><a href="#">خدمات</a></li>
+    <li><a href="#">نمونه کارها</a></li>
+    <li><a href="#">تماس با ما</a></li>
+  </ul>
+</nav>
 <div id="page-transition">
   <div class="pt-bg"></div>
   <div class="pt-shine"></div>
-
   <div class="pt-character-wrap">
     <img src="photo4.png" alt="anime character" class="pt-character">
   </div>
-
   <div class="pt-content">
     <div class="pt-loader"></div>
     <p>در حال بارگزاری...</p>
   </div>
 </div>
-
     <div class="container">
         <header>
             <h1>رسانه روحِ صنعت بازی‌سازی</h1>
@@ -356,12 +361,10 @@ a:hover {
  <h3 <span class="highlight">عصر کامپیوترهای شخصی و گرافیک سه بعدی </span></h3>
 <p>در دهه 1990 تا 2000 میلادی  با ظهور کارت‌های گرافیک  (GPU) و رایانه های شخصی پیشرفته ماشین‌ها توانستند از دنیای دو بعدی (Pixels) به دنیای سه بعدی (Polygons) وارد شوند قدرت پردازش به شدت بالا رفت و بازی‌ها شبیه به فیلم شدند</p>
 <p>امروزه ماشین‌ها از نظر گرافیکی به مرز واقع‌گرایی (Photorealism) رسیده‌اند استفاده از Ray Tracing (رهگیری پرتوهای نور) و پردازش‌های عظیم ابری تفاوت بین بازی و واقعیت را کم کرده است</p>
-
   </section>        
             <section class="card">
                 <h3 <span class="highlight">موتور های بازی سازی پیشرفته </span></h3>    
                  <p>با پیشرفت صنعت بازی سازی موتور های ساخت گیم مختلفی عرضه شدند مثل : (RAGE)(Godot Engine)(Unity)  همچنین معروف ترین اون ها یعنی موتور  <a href="page4.html">(Unreal Engine)</a>که بیشتر برسی میکنیم</p>
-
 </main>
  <footer>
 کنفرانس درس کاربرد رسانه دانشگاه فرهنگیان شهید مطهری
@@ -371,16 +374,13 @@ a:hover {
 <script>
   const transition = document.getElementById('page-transition');
   const links = document.querySelectorAll('a[href]');
-
   function isInternalLink(link) {
     const url = new URL(link.href, window.location.origin);
     return url.origin === window.location.origin;
   }
-
   links.forEach(link => {
     link.addEventListener('click', function (e) {
       const href = this.getAttribute('href');
-
       if (
         !href ||
         href.startsWith('#') ||
@@ -390,35 +390,33 @@ a:hover {
       ) {
         return;
       }
-
       e.preventDefault();
-
       const url = this.href;
-
       transition.classList.remove('leaving');
       transition.classList.add('active');
-
       setTimeout(() => {
         transition.classList.add('leaving');
       }, 900);
-
       setTimeout(() => {
         window.location.href = url;
       }, 1200);
     });
   });
-
   window.addEventListener('load', () => {
     transition.classList.add('active');
-
     setTimeout(() => {
       transition.classList.add('leaving');
     }, 250);
-
     setTimeout(() => {
       transition.classList.remove('active', 'leaving');
     }, 600);
   });
 </script>
+    function toggleMenu() {
+  const menu = document.querySelector('.menu-container');
+  const nav = document.getElementById('nav-menu');
+  menu.classList.toggle('active');
+  nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
+}
 </body>
 </html>
